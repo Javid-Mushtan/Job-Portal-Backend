@@ -1,190 +1,76 @@
-🌐 Job Portal Application
+## 📂 Project Structure
 
-A modern Job Portal Application built with Spring Boot for the backend and a clean blue & white user interface for the frontend.
-This system connects job seekers, employers, and administrators through a secure and scalable platform.
-
-✨ Highlights
-
-🎨 Clean & modern blue-white UI
-
-🔐 Secure JWT authentication
-
-👤 Role-based access control
-
-💼 Job posting & application management
-
-📅 Interview scheduling support
-
-⚡ RESTful API architecture
-
-🧩 System Roles
-👨‍💼 Admin
-
-Manage users and roles
-
-Monitor jobs and applications
-
-Full system access
-
-🏢 Employer
-
-Post and manage job vacancies
-
-View job applications
-
-Update application status
-
-Schedule interviews
-
-👨‍🎓 Job Seeker
-
-Register and log in
-
-Browse available jobs
-
-Apply for jobs
-
-Track application status
-
-🖥️ Frontend Overview
-
-Blue & white themed design
-
-Card-based job listings
-
-Responsive layout
-
-Clean typography and spacing
-
-User-friendly navigation
-
-The frontend is designed to be simple, elegant, and easily extendable to React or Angular.
-
-⚙️ Backend Overview
-
-RESTful APIs built with Spring Boot
-
-Secure authentication using JWT
-
-Business logic handled via service layers
-
-Clean DTO-based request/response structure
-
-Java Time support using LocalDateTime
-
-🛠️ Technology Stack
-Backend
-
-Java 17+
-
-Spring Boot
-
-Spring Security
-
-JWT Authentication
-
-Spring Data JPA
-
-Hibernate
-
-ModelMapper
-
-Jackson (JavaTimeModule)
-
-Database
-
-PostgreSQL / MySQL
-
-Frontend
-
-HTML5
-
-CSS3 (Blue & White Theme)
-
-Tools
-
-Maven
-
-Swagger (OpenAPI)
-
-Lombok
-
-Git & GitHub
-
-📂 Project Structure
-job-portal-application
+job-portal-application-backend
 │
-├── backend
-│   └── src/main/java/com/project/job_portal_backend
-│       ├── controller
-│       ├── service
-│       ├── repository
-│       ├── model
-│       ├── dto
-│       ├── security
-│       └── config
+├── src/main/java/com/project/job_portal_backend
+│ ├── controller # REST controllers
+│ ├── service # Business logic
+│ ├── repository # Data access layer
+│ ├── model # JPA entities
+│ ├── dto
+│ │ ├── request # Request DTOs
+│ │ └── response # Response DTOs
+│ ├── security # JWT & Spring Security configuration
+│ ├── config # Application configuration
+│ └── JobPortalBackendApplication.java
 │
-└── frontend
-    ├── index.html
-    └── style.css
+├── src/main/resources
+│ ├── application.properties
+│ └── static
+│
+└── pom.xml
 
-🔑 Core API Endpoints
-Authentication
 
-POST /api/auth/register
+---
 
-POST /api/auth/login
+## 🔑 API Endpoints
 
-Jobs
+### Authentication
+- `POST /api/auth/register`
+- `POST /api/auth/login`
 
-GET /api/jobs
+### Job Management
+- `GET /api/jobs`
+- `POST /api/jobs`
+- `PUT /api/jobs/{jobId}`
+- `DELETE /api/jobs/{jobId}`
 
-POST /api/jobs
+### Job Applications
+- `POST /api/applications/apply`
+- `GET /api/applications/my-applications`
+- `GET /api/applications/job/{jobId}`
+- `PUT /api/applications/{applicationId}/status`
+- `POST /api/applications/{applicationId}/interview`
 
-PUT /api/jobs/{id}
+---
 
-DELETE /api/jobs/{id}
+## ⚙️ Configuration
 
-Applications
+### Application Properties
+Configure the database, server, and JWT settings in `application.properties`.
 
-POST /api/applications/apply
+- Server port and context path
+- Database connection (PostgreSQL/MySQL)
+- JPA & Hibernate settings
+- JWT secret key and expiration time
 
-GET /api/applications/my-applications
+---
 
-GET /api/applications/job/{jobId}
+## ▶️ Running the Application
 
-PUT /api/applications/{id}/status
+1. Clone the repository  
+2. Configure database credentials in `application.properties`  
+3. Build the project using Maven  
+4. Run the Spring Boot application  
 
-POST /api/applications/{id}/interview
+```bash
+mvn clean install
+mvn spring-boot:run
 
-🚀 Getting Started
+Main URI >> http://localhost:8081/api
 
-Clone the repository
+ 🧪 Validation & Error Handling
 
-Configure database and JWT properties
-
-Run the backend using Maven
-
-Open the frontend in a browser
-
-Access APIs via Swagger UI
-
-🔮 Future Enhancements
-
-Resume upload support
-
-Email notifications
-
-Advanced job search & filters
-
-Employer dashboard
-
-React-based frontend
-
-Cloud deployment
-
-👨‍💻 Author
-
-Javid Mushtan
-Job Portal Application
-Spring Boot Backend & Modern UI
+    >Request validation using @Valid
+    >Centralized exception handling
+    >Standardized API responses using a common response wrapper
