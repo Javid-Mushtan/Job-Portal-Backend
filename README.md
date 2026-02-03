@@ -2,23 +2,29 @@
 
 job-portal-application-backend
 │
-├── src/main/java/com/project/job_portal_backend
-│ ├── controller # REST controllers
-│ ├── service # Business logic
-│ ├── repository # Data access layer
-│ ├── model # JPA entities
-│ ├── dto
-│ │ ├── request # Request DTOs
-│ │ └── response # Response DTOs
-│ ├── security # JWT & Spring Security configuration
-│ ├── config # Application configuration
-│ └── JobPortalBackendApplication.java                                                                                                                         
+├── src
+│   └── main
+│       ├── java
+│       │   └── com
+│       │       └── project
+│       │           └── job_portal_backend
+│       │               ├── controller        # REST controllers: handle API requests/responses
+│       │               ├── service           # Business logic: process data & rules
+│       │               ├── repository        # Data access layer: interfaces to database
+│       │               ├── model             # JPA entities: database table mappings
+│       │               ├── dto
+│       │               │   ├── request       # Request DTOs: objects for API inputs
+│       │               │   └── response      # Response DTOs: objects for API outputs
+│       │               ├── security          # JWT & Spring Security configuration
+│       │               ├── config            # Application configuration: beans, ObjectMapper, etc.
+│       │               └── JobPortalBackendApplication.java  # Main Spring Boot application
+│       │
+│       └── resources
+│           ├── application.properties        # Database, server, JWT, and app configurations
+│           └── static                        # Static resources (if needed)
 │
-├── src/main/resources 
-│ ├── application.properties 
-│ └── static 
-│
-└── pom.xml 
+└── pom.xml                                  # Maven project dependencies
+
 
 ---
 
