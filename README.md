@@ -12,14 +12,13 @@ job-portal-application-backend
 │ │ └── response # Response DTOs
 │ ├── security # JWT & Spring Security configuration
 │ ├── config # Application configuration
-│ └── JobPortalBackendApplication.java
+│ └── JobPortalBackendApplication.java                                                                                                                         
 │
-├── src/main/resources
-│ ├── application.properties
-│ └── static
+├── src/main/resources 
+│ ├── application.properties 
+│ └── static 
 │
-└── pom.xml
-
+└── pom.xml 
 
 ---
 
